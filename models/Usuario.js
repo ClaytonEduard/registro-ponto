@@ -1,8 +1,8 @@
 //criando as dependecias do banco
 const mongoose = require("mongoose");
-
+const Schema = mongoose.Schema;
 //definindo o nome conjunto que será criando no servidos
-const UsuarioSchema = new mongoose.Schema({
+const Usuario = new Schema({
   matricula: {
     type: String,
     required: true,
@@ -21,5 +21,4 @@ const UsuarioSchema = new mongoose.Schema({
   },
 });
 
-
-mongoose.model('usuarios', Usuario)
+mongoose.model("usuarios", Usuario);

@@ -11,10 +11,13 @@ const path = require("path");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const flash = require("connect-flash");
-//const {   allowInsecurePrototypeAccess, } = require("@handlebars/allow-prototype-access");
+const res = require("express/lib/response");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 
 //carregar os modulos
-
+const usuarios = require("./routes/usuario");
 //flash
 app.use(flash());
 //sessão
@@ -42,17 +45,32 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //Handlebars
-app.engine("handlebars", exphbs.engine());
+//app.engine("handlebars", exphbs.engine());
+app.engine(
+  "handlebars",
+  exphbs.engine({
+    defaultLayout: "main",
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+  })
+);
 app.set("view engine", "handlebars");
-app.set("views", "./views");
+//app.set("views", "./views");
 
 //Public
 //todas as definições de css e outros estão na pasta public
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/registro", (req, res) => {
+  res.render("usuarios/registro");
+});
+
+//carregado as routes
+app.use("/admin", admin);
+app.use("/usuarios", usuarios);
+
 app.get("/", function (req, res) {
   //  res.send('Novo olá mundo!');
-  res.render("index");
+  res.render("usuarios/login");
 });
 
 //pagina de erro
