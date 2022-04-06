@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 //definindo o nome conjunto que será criando no servidos
 const Usuario = new Schema({
   matricula: {
-    type: String,
+    type: Number,
     required: true,
   },
   date: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
   eAdmin: {
     type: String,

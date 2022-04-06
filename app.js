@@ -21,6 +21,8 @@ const usuarios = require("./routes/usuario");
 //flash
 app.use(flash());
 //sessão
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 app.use(
   session({
     secret: "RegistroPonto",
@@ -41,9 +43,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//Body parser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 //Handlebars
 //app.engine("handlebars", exphbs.engine());
 app.engine(
@@ -54,12 +54,20 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-//app.set("views", "./views");
+
+//Mongoose conexao com o banco de dados
+mongoose
+  .connect("mongodb://localhost/registroponto")
+  .then(() => {
+    console.log("Conectado ao mongo");
+  })
+  .catch((err) => {
+    console.log("Erro ao se conectar:" + err);
+  });
 
 //Public
 //todas as definições de css e outros estão na pasta public
 app.use(express.static(path.join(__dirname, "public")));
-
 app.get("/registro", (req, res) => {
   res.render("usuarios/registro");
 });
@@ -79,7 +87,7 @@ app.get("/404", (req, res) => {
 });
 
 //server local
-const PORT = 8080;
+const PORT = 8081;
 app.listen(PORT, () => {
   console.log("Servidor rodando!");
 });
