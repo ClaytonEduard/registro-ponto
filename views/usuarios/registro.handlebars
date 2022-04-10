@@ -6,24 +6,17 @@
 <h3> Crie sua conta:</h3>
 <div class="card mt-3">
     <div class="card-body">
-        <form action="" method="post">
+        <form action="" method="post" id="form" enctype="application/x-www-form-urlencoded">
             <label for="matricula">Matricula: </label>
             <input type="number" name="matricula" class="form-control" required>
             <label for="senha">Senha: </label>
             <input type="password" name="senha" class="form-control" required>
             <div class="mt-3 form-check">
-                <input type="checkbox" class="form-check-input" id="eAdmin" value="1">
+                <input type="checkbox" name="eAdmin" class="form-check-input" id="eAdmin" value="1">
                 <label class="form-check-label" for="eAdmin">Administrador</label>
             </div>
             <hr>
-            <button type="submit" onclick="myFunction()" class="btn btn-success mt-1">Criar conta</button>
+            <button type="submit"  class="btn btn-success mt-1">Criar conta</button>
         </form>
     </div>
 </div>
-<script>
-    function myFunction() {
-        var x = document.createElement("eAdmin");
-        x.setAttribute("type", "checkbox");
-        document.body.appendChild(x);
-    }
-</script>
