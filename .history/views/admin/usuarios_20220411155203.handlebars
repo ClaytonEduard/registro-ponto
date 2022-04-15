@@ -1,0 +1,18 @@
+<h2>Lista de Usuários</h2>
+<hr />
+<a href="">
+  <button class="btn btn-success">Novo Usuário</button></a>
+<hr />
+{{#each usuarios}}
+  <div class="card mt-4">
+    <div class="card-body">
+      <h4>Matrícula: {{matricula}}</h4>
+      <small>Data de Cadastro: {{date}}</small>
+      <br />
+      <small>Adiminstrador: {{eAdmin ==1}}</small>
+    </div>
+  </div>
+{{else}}
+  <h4 class="mt-03"> Nenhuma usuário registrado!</h4>
+
+{{/each}}

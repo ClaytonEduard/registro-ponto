@@ -1,0 +1,36 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+<h3>Registre Seu Ponto</h3>
+<div class="card mt-3">
+  <div class="card-body">
+    <form
+      action=""
+      method="post"
+      id="form"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <label for="matricula">Matricula: </label>
+      <input type="number" name="matricula" class="form-control" required />
+      <label for="senha">Senha: </label>
+      <input type="password" name="senha" class="form-control" required />
+      <div class="mt-3 form-check">
+        <input
+          type="checkbox"
+          name="eAdmin"
+          class="form-check-input"
+          id="eAdmin"
+          value="1"
+        />
+        <label class="form-check-label" for="eAdmin">Administrador</label>
+      </div>
+      <hr />
+      <div class="mb-3 button" style="margin-left: 8mm">
+        <input type="reset" class="btn btn-warning" value="Limpar" />
+        <input type="submit" class="btn btn-success" value="Salvar" />
+      </div>
+    </form>
+  </div>
+</div>
