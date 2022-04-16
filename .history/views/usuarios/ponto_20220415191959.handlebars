@@ -1,0 +1,26 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+<h3>Registre Seu Ponto</h3>
+<div class="card mt-3">
+  <div class="card-body">
+    <form
+      action=""
+      method="post"
+      id="form"  >
+      <label for="horaatual">Hora Atual </label>
+      <input type="text" id="horaatual" name="horaatual1" class="form-control" />
+
+      <label for="matricula">Matricula: </label>
+      <input type="number" name="matricula" class="form-control" required />
+      <hr />
+      <div class="mb-3 button" style="margin-left: 8mm">
+        <input type="reset" class="btn btn-warning" value="Limpar" />
+        <input type="submit" class="btn btn-success" value="Salvar" />
+      </div>
+    </form>
+  </div>
+</div>
+
