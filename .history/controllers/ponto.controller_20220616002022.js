@@ -31,7 +31,7 @@ module.exports = {
         }
 
         if (ultimoPonto.matricula == body.matricula && ultimoPonto.tipo == '0') {
-           // console.log("Ultimo ponto tipo :" + ultimoPonto.tipo)
+            console.log("Ultimoponto tipo :" + ultimoPonto.tipo)
             const novoPonto = new Ponto({
                 matricula: body.matricula,
                 tipo: body.tipo = 1
@@ -46,9 +46,17 @@ module.exports = {
             return await novoPonto.save()
         }
 
+
+        // const novoPonto = new Ponto({
+        //     //id: total,
+        //     matricula: body.matricula,
+        //     tipo: body.tipo = 0
+        // });
+        // console.table("Ponto Aberto" + novoPonto)
+        //return await novoPonto.save()
     }
 
 }
-
+    //console.log(novoPonto.tipo)
 
 

@@ -12,43 +12,50 @@ module.exports = {
             matricula: body.matricula,
         }).count();
         console.log("Matricula: " + body.matricula + " : " + total)
-        // captura todos os ponto da matricula
+
         const pontoArray = await Ponto.find({
             matricula: body.matricula,
-            //id: total,
-        })
+        }).sort()
         console.log("Ponto Lugar: " + pontoArray)
-        // armazena o ultimo do array referente a matricula
-        var ultimoPonto = pontoArray.pop();
-        console.log("Ponto ultimo Adcionado: " + ultimoPonto)
-        console.log("--------------------");
+
+        var ultimoPonto = pontoArray[]
+        console.log("Ponto na Posição 0: " + ultimoPonto)
+
         if (ultimoPonto == null) {
             const novoPonto = new Ponto({
                 matricula: body.matricula,
             });
             console.table("Ponto aberto : null" + novoPonto)
-            return await novoPonto.save()
+            //return await novoPonto.save()
         }
 
         if (ultimoPonto.matricula == body.matricula && ultimoPonto.tipo == '0') {
-           // console.log("Ultimo ponto tipo :" + ultimoPonto.tipo)
+            console.log("Ultimoponto tipo :" + ultimoPonto.tipo)
             const novoPonto = new Ponto({
                 matricula: body.matricula,
                 tipo: body.tipo = 1
             });
             console.table("Ponto fechado" + novoPonto)
-            return await novoPonto.save()
+            //return await novoPonto.save()
         } else {
             const novoPonto = new Ponto({
                 matricula: body.matricula,
             });
             console.table("Ponto aberto: NORMAL" + novoPonto)
-            return await novoPonto.save()
+            //return await novoPonto.save()
         }
 
+
+        // const novoPonto = new Ponto({
+        //     //id: total,
+        //     matricula: body.matricula,
+        //     tipo: body.tipo = 0
+        // });
+        // console.table("Ponto Aberto" + novoPonto)
+        //return await novoPonto.save()
     }
 
 }
-
+    //console.log(novoPonto.tipo)
 
 
