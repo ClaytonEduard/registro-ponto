@@ -25,10 +25,10 @@ const Ponto = new Schema({
     },
     fechado: {
         type: String,
-    },
+    }
     datafechamento: {
         type: Date,
-    },
+    }
 
     // a ideia agora e criar uma propriedade abrir ponto e fechou ponto dentro do proprio objeto
     // onde ele abra o ponto, onde um enum pode submenter a essa identificação e depois e so dar um update fechando o ponto
