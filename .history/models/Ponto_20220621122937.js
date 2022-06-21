@@ -16,6 +16,10 @@ const Ponto = new Schema({
         type: Date,
         default: Date.now()
     },
+    tipo: {
+        type: String,
+        default: 0,
+    },
     aberto: {
         type: Boolean,
         default: true,

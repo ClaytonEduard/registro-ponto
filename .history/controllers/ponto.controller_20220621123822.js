@@ -30,15 +30,14 @@ module.exports = {
             return await novoPonto.save()
         }
 
-        if (ultimoPonto.matricula == body.matricula && ultimoPonto.fechado == false) {
+        if (ultimoPonto.matricula == body.matricula && ultimoPonto.aberto == true) {
             // console.log("Ultimo ponto tipo :" + ultimoPonto.tipo)
-            const novoPonto = ultimoPonto({
-                //matricula: body.matricula,
+            const novoPonto = new Ponto({
+                matricula: body.matricula,
                 fechado: true,
-                datafechamento: Date.now(),
             });
             console.table("Ponto fechado" + novoPonto)
-            return await novoPonto.update();
+            return await novoPonto.save()
         } else {
             const novoPonto = new Ponto({
                 matricula: body.matricula,

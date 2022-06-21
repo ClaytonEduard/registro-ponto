@@ -25,20 +25,22 @@ module.exports = {
         if (ultimoPonto == null) {
             const novoPonto = new Ponto({
                 matricula: body.matricula,
+                aberto: true,
+                fechado: false,
             });
             console.table("Ponto aberto : null" + novoPonto)
             return await novoPonto.save()
         }
 
-        if (ultimoPonto.matricula == body.matricula && ultimoPonto.fechado == false) {
+        if (ultimoPonto.matricula == body.matricula && ultimoPonto.tipo == '0') {
             // console.log("Ultimo ponto tipo :" + ultimoPonto.tipo)
-            const novoPonto = ultimoPonto({
-                //matricula: body.matricula,
+            const novoPonto = new Ponto({
+                matricula: body.matricula,
+                tipo: body.tipo = 1
                 fechado: true,
-                datafechamento: Date.now(),
             });
             console.table("Ponto fechado" + novoPonto)
-            return await novoPonto.update();
+            return await novoPonto.save()
         } else {
             const novoPonto = new Ponto({
                 matricula: body.matricula,

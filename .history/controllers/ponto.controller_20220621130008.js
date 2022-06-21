@@ -38,7 +38,7 @@ module.exports = {
                 datafechamento: Date.now(),
             });
             console.table("Ponto fechado" + novoPonto)
-            return await novoPonto.update();
+            return await novoPonto.save()
         } else {
             const novoPonto = new Ponto({
                 matricula: body.matricula,

@@ -56,7 +56,7 @@ router.get("/pontos", (req, res) => {
         }
         // obtenho o id, o tipo, e a matricula
         function obterPonto(pontos, id, fechado, matricula) {
-            const ponto = pontos.find((ponto) => (ponto === null || ponto === void 0 ? void 0 : ponto.id) === id && fechado == (ponto == null || ponto === void 0 ? void 0 : ponto.fechado) && matricula === (ponto == null || ponto === void 0 ? void 0 : ponto.matricula))
+            const ponto = pontos.find((ponto) => (ponto === null || ponto === void 0 ? void 0 : ponto.id) === id && tipo === (ponto == null || ponto === void 0 ? void 0 : ponto.fechado) && matricula === (ponto == null || ponto === void 0 ? void 0 : ponto.matricula))
                 //console.log(ponto)
             return ponto
         }
@@ -81,12 +81,12 @@ router.get("/pontos", (req, res) => {
                     const idAtual = registrosDoUsuario[indiceDois].id;
                     const matriculaAtual = registrosDoUsuario[indiceDois].matricula
                     const proximoId = registrosDoUsuario[indiceDois].id + 1;
-                    // const proximoMatricula = registrosDoUsuario[indiceDois].matricula
-                    const tipoEntrada = true;
-                    const tipoSaida = false;
+                    const proximoMatricula = registrosDoUsuario[indiceDois].matricula
+                    const tipoEntrada = '0';
+                    const tipoSaida = '1';
                     const par = 2;
                     const entrada = obterPonto(pontos, idAtual, tipoEntrada, matriculaAtual);
-                    const saida = obterPonto(pontos, proximoId, tipoSaida, matriculaAtual);
+                    const saida = obterPonto(pontos, proximoId, tipoSaida, proximoMatricula);
                     console.log("Entrada :" + JSON.stringify(entrada))
                     console.log("Saida :" + JSON.stringify(saida))
                     console.log("----")

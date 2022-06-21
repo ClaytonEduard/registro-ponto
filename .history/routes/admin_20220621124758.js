@@ -56,7 +56,7 @@ router.get("/pontos", (req, res) => {
         }
         // obtenho o id, o tipo, e a matricula
         function obterPonto(pontos, id, fechado, matricula) {
-            const ponto = pontos.find((ponto) => (ponto === null || ponto === void 0 ? void 0 : ponto.id) === id && fechado == (ponto == null || ponto === void 0 ? void 0 : ponto.fechado) && matricula === (ponto == null || ponto === void 0 ? void 0 : ponto.matricula))
+            const ponto = pontos.find((ponto) => (ponto === null || ponto === void 0 ? void 0 : ponto.id) === id && tipo === (ponto == null || ponto === void 0 ? void 0 : ponto.fechado) && matricula === (ponto == null || ponto === void 0 ? void 0 : ponto.matricula))
                 //console.log(ponto)
             return ponto
         }
