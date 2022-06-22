@@ -14,7 +14,7 @@ module.exports = {
         console.log("Matricula: " + body.matricula + " : " + total)
             // captura todos os ponto da matricula
         const fech = false
-        const pontoArray = await Ponto.find({
+        const pontoArray = await Ponto.findOne({
             matricula: body.matricula,
             fechado: fech,
             //id: total,
@@ -41,12 +41,10 @@ module.exports = {
             const filter = {
                 matricula: mat,
             }
-            console.log(filter);
             const update = {
                 fechado: true,
                 datafechamento: Date.now(),
             }
-            console.log(update);
             console.table("Ponto fechado: ")
             return await Ponto.findOneAndUpdate(filter, update, op);
         } else {

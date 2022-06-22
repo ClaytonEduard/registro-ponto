@@ -26,7 +26,7 @@ const Ponto = new Schema({
     },
     datafechamento: {
         type: Date,
-        default: Date.now(),
+        default: Date.now();
     },
 
     // a ideia agora e criar uma propriedade abrir ponto e fechou ponto dentro do proprio objeto
