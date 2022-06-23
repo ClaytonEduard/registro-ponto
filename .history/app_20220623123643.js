@@ -57,6 +57,7 @@ app.engine(
     exphbs.engine({
         defaultLayout: "main",
         handlebars: allowInsecurePrototypeAccess(Handlebars),
+
         helpers: require('./helpers/helpers.js')
     })
 );

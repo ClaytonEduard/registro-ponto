@@ -4,6 +4,8 @@ const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 Handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
+// const MomentHandlebars = require('handlebars-moment');
+// MomentHandlebars.registerHelper(Handlebars)
 
 const app = express();
 // constante para mapear as rotas
@@ -57,6 +59,7 @@ app.engine(
     exphbs.engine({
         defaultLayout: "main",
         handlebars: allowInsecurePrototypeAccess(Handlebars),
+        // MomentHandlebars.registerHelper(Handlebars),
         helpers: require('./helpers/helpers.js')
     })
 );
