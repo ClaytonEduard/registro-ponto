@@ -7,11 +7,13 @@
 <div class="card mt-4">
   <div class="card-body">
     <h4>Matrícula: {{matricula}}</h4>
-    <small>Entrada: {{aberto}}</small>
+    <small>Aberto: {{aberto}}</small>
     <small>Data de registro: {{datalancamento}}</small>
     <br />
-    <small>Saída  : {{fechado}}</small>
+    <small>{{#ifEquals tipo "0"}} Chegada {{/ifEquals}}</small>
+    <small>{{#ifEquals tipo "1"}} Saída {{/ifEquals}}</small>
     <small>Data de Fechamento: {{datafechamento}}</small>
+    <small>Fechado: {{fechado}}</small>
   </div>
 </div>
 {{else}}

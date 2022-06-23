@@ -102,10 +102,14 @@ router.get("/pontos", (req, res) => {
         } */
         // console.table(obterRelatorio(pontos));
 
-
         res.render('admin/pontos', { pontos: pontos })
     })
 
+    Ponto.aggregate([{
+        $project: {
+            dayMonthYear: { $dateToString: { format: "%dd/%mm/%yyyy", date: "$timestamp" } }
+        }
+    }])
 
 })
 

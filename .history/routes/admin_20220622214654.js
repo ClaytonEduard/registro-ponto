@@ -36,7 +36,7 @@ router.get("/usuarios", (req, res) => {
 router.get("/pontos", (req, res) => {
 
     Ponto.find().then((pontos) => {
-        /* var pegar = new Array;
+        var pegar = new Array;
 
         var Ponto = new Array;
         Ponto = pontos.map(function(e) { return e });
@@ -99,14 +99,13 @@ router.get("/pontos", (req, res) => {
                 indice++;
             }
             return relatorio;
-        } */
+        }
         // console.table(obterRelatorio(pontos));
+
 
 
         res.render('admin/pontos', { pontos: pontos })
     })
-
-
 })
 
 

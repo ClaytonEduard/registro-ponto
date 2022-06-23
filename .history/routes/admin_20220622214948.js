@@ -102,11 +102,8 @@ router.get("/pontos", (req, res) => {
         } */
         // console.table(obterRelatorio(pontos));
 
-
         res.render('admin/pontos', { pontos: pontos })
     })
-
-
 })
 
 
