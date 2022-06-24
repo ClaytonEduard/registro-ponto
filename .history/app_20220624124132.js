@@ -4,10 +4,10 @@ const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 //Handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
-const moment = require("handlebars.moment");
-moment.registerHelpers(Handlebars);
+const moment = require("moment");
+moment.registerHelpers(handlebars),
 
-const app = express();
+    const app = express();
 // constante para mapear as rotas
 const admin = require("./routes/admin");
 //configurando o bootstrap

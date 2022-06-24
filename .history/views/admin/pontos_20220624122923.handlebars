@@ -11,8 +11,8 @@
     <small>Data de registro: {{datalancamento}}</small>
     <br />
     <small>Saída : {{fechado}}</small>
-    <small>Data de Fechamento:{{datafechamento}}</small>
-    {{!-- {{moment datafechamento format="dddd, DD MMMM YYYY HH:mm:ss"}} --}}
+    <small>Data de Fechamento:{{moment datafechamento format="dddd, DD MMMM YYYY HH:mm:ss ZZ"}}{{/moment}}</small>
+    {{!-- <time datetime={{date format="dd/MM/yyyy HH:mm:ss" }}>{{datafechamento}} </time> --}}
   </div>
 </div>
 {{else}}
