@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 //Handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
 const moment = require("handlebars.moment");
 moment.registerHelpers(Handlebars);
-Handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
 
 const app = express();
 // constante para mapear as rotas
@@ -64,7 +63,7 @@ app.engine(
         // formatDate: (date) => {
         //     return moment(date).format("DD.MM.YYYY hh:mm:ss");
         // },
-
+        handlebars.registerHelper('formatDate', require('handlebars-dateformat')),
         helpers: require('./helpers/helpers.js'),
 
     })
